@@ -25,8 +25,14 @@ LUA_FUNCTION(GetVariable)
 #ifdef SETVARIABLE_ENABLED_FLAG
 	LUA_FUNCTION(SetVariable)
 	{
-		errno_t returnValue =_putenv_s(LUA->GetString(1), LUA->GetString(2));
-		if (returnValue != 0) {
+		#ifdef _WIN32
+			errno_t returnValue =_putenv_s(LUA->GetString(1), LUA->GetString(2));
+		#elif __linux__
+			int returnValue = setenv(LUA->GetString(1), LUA->GetString(2), 0);
+		#endif
+
+		if (returnValue != 0)
+		{
 			LUA->ThrowError("Failed to set environment variable");
 			return 0;
 		}
