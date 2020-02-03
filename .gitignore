@@ -5,3 +5,4 @@ Debug/
 Release/
 .vs/
 *.sln
+premake5.exe
