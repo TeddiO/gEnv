@@ -2,7 +2,7 @@
 platformAlias = {
     ["windows"] = "win32",
     ["linux"] = "linux",
-    ["macos"] = "osx" --todo: test this with xcode
+    ["macosx"] = "osx"
 }
 
 workspace "genv"
@@ -16,7 +16,8 @@ project "gEnv"
 
     includedirs { "../gmodheaders/include" }
     targetname ("gmsv_genv_" .. platformAlias[os.target()])
-    
+    targetprefix ""
+    targetextension ".dll"
 
     filter { "configurations:Debug" }
         defines { "DEBUG", "_CRT_SECURE_NO_WARNINGS" }

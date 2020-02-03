@@ -27,7 +27,7 @@ LUA_FUNCTION(GetVariable)
 	{
 		#ifdef _WIN32
 			errno_t returnValue =_putenv_s(LUA->GetString(1), LUA->GetString(2));
-		#elif __linux__
+		#elif __linux__ || __APPLE__
 			int returnValue = setenv(LUA->GetString(1), LUA->GetString(2), 0);
 		#endif
 
