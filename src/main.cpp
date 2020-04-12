@@ -14,9 +14,7 @@ LUA_FUNCTION(GetVariable)
 	}
 	
 	const char* typeUsed = LUA->GetTypeName(LUA->GetType(1));
-	char errMessage[255];
-	sprintf(errMessage, "Invalid type of %s used! Needs to be of type string!", typeUsed);
-	LUA->ThrowError(errMessage);
+	LUA->ArgError(1, "expected string");
 	return 0;
 }
 
@@ -33,7 +31,7 @@ LUA_FUNCTION(GetVariable)
 
 		if (returnValue != 0)
 		{
-			LUA->ThrowError("Failed to set environment variable");
+			LUA->ThrowError("Failed to set environment variable.");
 			return 0;
 		}
 		return 0;
