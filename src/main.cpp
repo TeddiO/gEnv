@@ -12,8 +12,7 @@ LUA_FUNCTION(GetVariable)
 		LUA->PushString(envValue);
 		return 1;
 	}
-	
-	const char* typeUsed = LUA->GetTypeName(LUA->GetType(1));
+
 	LUA->ArgError(1, "expected string");
 	return 0;
 }
