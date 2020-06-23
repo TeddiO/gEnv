@@ -8,6 +8,7 @@ on:
       - "README.md"
       - 'examples/**'
       - ".gitignore"
+      - ".gitattributes"
       - ".github/workflows/build-master.yml" # This alone being updated should no longer trigger a build.
 
 jobs:
