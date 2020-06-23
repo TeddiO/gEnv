@@ -4,6 +4,12 @@ on:
   push:
     branches: [ master ]
 
+    paths-ignore:
+      - "README.md"
+      - 'examples/**'
+      - ".gitignore"
+      - ".github/workflows/build-master.yml" # This alone being updated should no longer trigger a build.
+
 jobs:
 
   fetch-dependencies:
