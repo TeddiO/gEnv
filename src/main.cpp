@@ -6,7 +6,7 @@ using namespace GarrysMod::Lua;
 
 LUA_FUNCTION(GetVariable)
 {
-	if (LUA->IsType(1, Type::STRING))
+	if (LUA->IsType(1, Type::String))
 	{
 		char* envValue = getenv(LUA->GetString(1));
 		LUA->PushString(envValue);
