@@ -47,7 +47,7 @@ jobs:
         name: premake-persistence
         path: genvsrc
 
-    - uses: microsoft/setup-msbuild@v1.0.0
+    - uses: microsoft/setup-msbuild@v1.0.2
 
     # Until MS make running windows vms cheaper, are we fuck doing two of these in parallel
     - run: |
